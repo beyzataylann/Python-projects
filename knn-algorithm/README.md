@@ -1,35 +1,34 @@
-#K-En Yakın Komşu (KNN) Algoritması ile iPhone Satın Alma Tahmini
-Bu proje, müşterilerin iPhone satın alıp almayacağını tahmin etmek için K-En Yakın Komşu (KNN) algoritmasını kullanmaktadır. KNN algoritması hem kütüphane kullanılarak hem de sıfırdan elle yazılarak uygulanmıştır.
+# K-En Yakın Komşu (KNN) Algoritması ile iPhone Satın Alma Tahmini
+Bu proje, müşterilerin iPhone satın alıp almayacağını tahmin etmek için K-En Yakın Komşu (KNN) algoritmasını kullanmaktadır. KNN algoritması hem kütüphane kullanılarak hem de kütüphane kullanılmadan yazılarak uygulanmıştır. 
 
-#KNN Algoritması Hakkında
-K-En Yakın Komşu (KNN) algoritması, hem sınıflandırma hem de regresyon problemlerinde kullanılan, basit ve etkili bir makine öğrenimi yöntemidir.
-Sınıflandırma: Yeni bir veri noktası, en yakın k komşusunun sınıfına göre sınıflandırılır.
-Regresyon: Yeni veri noktasının değeri, en yakın k komşusunun değerlerinin ortalaması alınarak tahmin edilir.
+k değerinin kullanıcı tarafından belirlenmesinin sebebi, modelin karmaşıklığını ve duyarlılığını kontrol edebilmek içindir. Küçük k değerleri modelin çok hassas olmasına neden olur, bu da aşırı öğrenmeye (overfitting) yol açabilir. Büyük k değerleri ise modelin genelleme yeteneğini artırır, ancak bu kez de yetersiz öğrenme (underfitting) riski oluşur.
 
-Bu projede, yalnızca sınıflandırma problemi için KNN algoritması kullanılmıştır.
+# KNN Algoritması Hakkında
+K-En Yakın Komşu (KNN) algoritması, hem sınıflandırma hem de regresyon problemlerinde kullanılan, basit ve etkili bir makine öğrenimi yöntemidir. Bu projede, yalnızca sınıflandırma problemi için KNN algoritması kullanılmıştır. KNN algoritması, yeni bir veri noktasını en yakın k komşusunun sınıfına göre sınıflandırır.
 
-#Veri Seti Hakkında
+# Veri Seti Hakkında
 Veri setinde müşteri bilgileri yer almaktadır ve şu özelliklerden oluşur:
+
 Age (Yaş): Müşterinin yaşı
+
 Salary (Maaş): Müşterinin yıllık maaşı
+
 Purchase Iphone (iPhone Satın Alma): Hedef değişken; müşterinin iPhone satın alıp almadığını belirtir (1 = Evet, 0 = Hayır)
 
-Amacımız, bu özellikler üzerinden yeni müşterilerin iPhone satın alma durumunu tahmin etmektir.
-Projede Kullanılan Yöntemler
+# Projede Kullanılan Yöntemler
 Projede iki farklı KNN uygulaması yer almaktadır:
 
-#1. Kütüphane Kullanarak KNN (knn_with_library.py)
-Python’un güçlü makine öğrenimi kütüphanesi scikit-learn kullanılmıştır. KNeighborsClassifier sınıfı ile kolayca model oluşturulup eğitilmiştir. Bu yöntem, kodu kısa, temiz ve performansı yüksek hale getirir. 
-Model .fit() metodu ile eğitim verisini belleğe alır ve .predict() ile tahmin yapar.
+# 1. Kütüphane Kullanarak KNN (knn_with_library.py)
+Python’un güçlü makine öğrenimi kütüphanesi scikit-learn kullanılmıştır. KNeighborsClassifier sınıfı ile  model oluşturulup eğitilmiştir. .fit() metodu, modeli eğitim verisiyle eğitirken; .predict() metodu, eğitilmiş modelle yeni veriler üzerinde tahmin yapar.
 
-#2. Kütüphane Kullanmadan Elle Yazılmış KNN (knn_without_library.py)
-KNN algoritmasının mantığını daha iyi anlamak için sıfırdan elle yazılmıştır. Eğitim süreci olmadan, tüm veri bellekte saklanır. Yeni bir veri noktası ile tüm veriler arasındaki Öklidyen mesafesi hesaplanır. En yakın k komşunun sınıfına göre çoğunluk oyu ile sınıflandırma yapılır.
+# 2. Kütüphane Kullanmadan Elle Yazılmış KNN (knn_without_library.py)
+KNN algoritmasının mantığını daha iyi anlamak için sıfırdan elle yazılmıştır. Sadece CSV dosyasını okumak için pandas kütüphanesi kullanılmıştır. Eğitim süreci olmadan, tüm veri bellekte saklanır. Yeni bir veri noktası ile tüm veriler arasındaki Öklidyen mesafesi hesaplanır. En yakın k komşunun sınıfına göre çoğunluk oyu ile sınıflandırma yapılır.
 
-#Kullanım
-Kütüphane kullanılmadan yazılan KNN algoritmasının terminal çıktısı aşağıdadır:
+# Kullanım
+Kütüphane kullanılarak yazılan KNN algoritmasının terminal çıktısı aşağıdadır:
 <img width="932" height="109" alt="image" src="https://github.com/user-attachments/assets/b6e60df2-500f-4525-b298-966a315d353d" />
 
-Kütüphane kullanılarak yazılan KNN algoritmasının terminal çıktısı aşağıdadır:
+Kütüphane kullanılmadan yazılan KNN algoritmasının terminal çıktısı aşağıdadır:
 <img width="948" height="126" alt="image" src="https://github.com/user-attachments/assets/33388257-d567-4cb7-a814-216d1b231ec9" />
 
 
