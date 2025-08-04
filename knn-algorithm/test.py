@@ -1,5 +1,3 @@
-# test/test.py
-
 import pandas as pd
 import time
 import sys
@@ -10,7 +8,7 @@ from knn_with_library import sklearn_model_predict
 
 def run_test():
     """
-    Kütüphanesiz ve sklearn kütüphanesi kullanılarak yazılan iki KNN algoritmasının tahmin doğruluğu ve çalışma süresini karşılaştırır.
+    Kütüphane kullanılmadan ve sklearn kütüphanesi kullanılarak yazılan iki KNN algoritmasının tahmin doğruluğu ve çalışma süresini karşılaştırır.
     """
     data = pd.read_csv("iphone_purchase_records.csv")
     feature_cols = list(data.columns[:-1])
