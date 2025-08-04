@@ -18,6 +18,7 @@ def run_test():
     test_input = [32, 160000]
     age, salary = test_input
 
+    
     start_custom = time.time()
     result_custom = knn_algorithm(feature_cols, label_col, data, test_input, k)
     end_custom = time.time()
