@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def knn_algorithm(feature_cols, label_col, data, prediction, k):
     """
     Kütüphane kullanmadan KNN algoritması ile tahmin yapar.
