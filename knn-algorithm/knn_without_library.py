@@ -29,6 +29,7 @@ def calculate_oklid_distance(p_age, p_salary, k, data):
         category_0 = {}
         i = 0
         while i < (len(data)) :
+
             age = data['Age'][i]
             salary = data['Salary'][i]
             purchase_iphone = data['Purchase Iphone'][i]
@@ -48,6 +49,14 @@ def calculate_oklid_distance(p_age, p_salary, k, data):
     except Exception as e:
         print(e)
     
+def preprocess(data):
+    """
+    :param:data
+    return:
+    """
+    data['Age'] = (data['Age'] - data['Age'].min()) / (data['Age'].max() - data['Age'].min())
+    data['Salary'] = (data['Salary'] - data['Salary'].min()) / (data['Salary'].max() - data['Salary'].min())
+    return data
 
 
 def find_category(result, category_0, category_1):
@@ -80,8 +89,11 @@ def find_category(result, category_0, category_1):
 def main():
     try:
         data = pd.read_csv("iphone_purchase_records.csv")
+        data =preprocess(data)
         p_age = float(input("Lütfen yaşınızı yazınız: "))
         p_salary = float(input("Lütfen maaşınızı yazınız: "))
+        p_age = (p_age - data['Age'].min()) / (data['Age'].max() - data['Age'].min())
+        p_salary = (p_salary - data['Salary'].min()) / (data['Salary'].max() - data['Salary'].min())
         k = int(input("k(en yakın komşu) sayısını giriniz:  "))
         if k < len(data):
            prediction = knn_algorithm((p_age), (p_salary), (k), data )
