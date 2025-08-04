@@ -12,30 +12,29 @@ def knn_algorithm(feature_cols, label_col, data, prediction, k):
     :return:
     """
     try:
-        category_0, category_1 = calculate_euclid_distance(
-            feature_cols, label_col, data, prediction
+        distances = calculate_euclid_distance(
+            feature_cols, data, prediction
         )
-        category_result = find_category(
-            category_0, category_1, k, data, label_col
+        distances_result = find_category(
+            distances, k, data, label_col
         )
-        return category_result
+        return distances_result
 
     except Exception as e:
         print(e)
 
 
-def calculate_euclid_distance(feature_cols, label_col, data, prediction):
+def calculate_euclid_distance(feature_cols, data, prediction):
     """
     Tüm verilerle verilen giriş arasındaki Öklid mesafesini hesaplar.
     :param feature_cols:
-    :param label_col:
     :param data:
     :param prediction:
     :return: 
     """
     try:
-        category_1 = []
-        category_0 = []
+    
+        distances = []
 
         for i in range(len(data)):
             distance = 0
@@ -44,22 +43,18 @@ def calculate_euclid_distance(feature_cols, label_col, data, prediction):
 
             distance **= 0.5
 
-            if data[label_col][i] == 1:
-                category_1.append((i, distance))
-            else:
-                category_0.append((i, distance))
+        distances.append((i,distance))
 
-        return category_0, category_1
+        return distances
 
     except Exception as e:
         print(e)
 
 
-def find_category(category_0, category_1, k, data, label_col):
+def find_category(distances, k, data, label_col):
     """
     En yakın k komşuya göre sınıf tahmini yapar.
-    :param category_0:
-    :param category_1:
+    :param distances:
     :param k:
     :param data:
     :param label_col:
@@ -68,11 +63,11 @@ def find_category(category_0, category_1, k, data, label_col):
     try:
         count_0 = 0
         count_1 = 0
-        total_category = category_0 + category_1
-        total_sorted = sorted(total_category, key=lambda x: x[1])
-        total_k = total_sorted[:k]
+        
+        sorted_distances = sorted(distances, key=lambda x: x[1])
+        sorted_distances_k = sorted_distances[:k]
 
-        for idx, _ in total_k:
+        for idx, _ in sorted_distances_k:
             if data[label_col][idx] == 0:
                 count_0 += 1
             else:
