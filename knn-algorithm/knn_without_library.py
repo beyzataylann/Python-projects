@@ -3,7 +3,7 @@ import pandas as pd
 
 def knn_algorithm(feature_cols, label_col, data, prediction, k):
     """
-    En yakın komşulara göre sınıf tahmini yapar.
+    Kütüphane kullanmadan KNN algoritması ile tahmin yapar.
     :param feature_cols:
     :param label_col: 
     :param data: 
