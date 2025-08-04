@@ -26,9 +26,13 @@ KNN algoritmasının mantığını daha iyi anlamak için sıfırdan elle yazıl
 
 # Kullanım
 Kütüphane kullanılarak yazılan KNN algoritmasının terminal çıktısı aşağıdadır:
-<img width="932" height="109" alt="image" src="https://github.com/user-attachments/assets/b6e60df2-500f-4525-b298-966a315d353d" />
+![alt text](knn_with_library.png)
 
 Kütüphane kullanılmadan yazılan KNN algoritmasının terminal çıktısı aşağıdadır:
-<img width="948" height="126" alt="image" src="https://github.com/user-attachments/assets/33388257-d567-4cb7-a814-216d1b231ec9" />
+![alt text](knn_without_library.png)
+
+Kütüphane kullanılmadan ve scikit-learn kütüphanesi ile yazılmış iki farklı KNN algoritmasının tahmin sonuçları ve çalışma süreleri karşılaştırılmıştır.
+![alt text](test.png)
+
 
 
