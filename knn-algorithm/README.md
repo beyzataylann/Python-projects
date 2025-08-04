@@ -32,7 +32,10 @@ Kütüphane kullanılmadan yazılan KNN algoritmasının terminal çıktısı a�
 ![alt text](knn_without_library.png)
 
 Kütüphane kullanılmadan ve scikit-learn kütüphanesi ile yazılmış iki farklı KNN algoritmasının tahmin sonuçları ve çalışma süreleri karşılaştırılmıştır:
+
+
 ![alt text](test.png)
+
 
 
 
